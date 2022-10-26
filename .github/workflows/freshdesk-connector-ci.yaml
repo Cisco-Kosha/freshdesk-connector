@@ -2,10 +2,14 @@ name: freshdesk-connector CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+    - main
+    - 'releases/**'
   pull_request:
-    branches: [ "main" ]
-
+    branches:
+    - main
+    - 'releases/**'
+  
 env:
   REGISTRY: docker.io
   IMAGE_NAME: ${{ secrets.DOCKER_REPO }}/${{ github.event.repository.name }}
