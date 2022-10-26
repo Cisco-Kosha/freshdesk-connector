@@ -5,10 +5,12 @@ on:
     branches:
     - main
     - 'releases/**'
+    - fresh-desk-connector-ci
   pull_request:
     branches:
     - main
     - 'releases/**'
+    - fresh-desk-connector-ci
   
 env:
   REGISTRY: docker.io
