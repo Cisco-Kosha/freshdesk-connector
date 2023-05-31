@@ -1,51 +1,40 @@
 # Kosha Freshdesk Connector
 
-Freshdesk is a cloud-based customer support platform that was founded with the mission of enabling companies of all sizes to provide great customer service.
+Freshdesk is a customer support platform that helps you manage customer inquiries, support tickets, and issue tracking,   so that you can provide efficient and timely support to your users.
 
-The connector APIs allow you to perform 'RESTful' operations such as reading, modifying, adding or deleting data from your helpdesk. The APIs also support Cross-Origin Resource Sharing (CORS).
+The Kosha Freshdesk connector enables you to perform REST API operations from the Freshdesk API in your Kosha workflow or custom application. Using the Kosha Freshdesk connector, you can directly access the Freshdesk platform to:
 
+* List, create, and delete Freshdesk tickets
+* Search Freshdesk tickets
+* Get statistics about Freshdesk tickets
 
+## Useful Actions
 
-![Twitter](images/freshdesk.jpg)
+You can use the Kosha Freshdesk connector to manage Freshdesk agents, assets, tickets, and problems. 
 
-This Connector API exposes REST API endpoints to perform any operations on Freshdesk v2 API in a simple, quick and intuitive fashion.
+Refer to the Kosha Freshdesk connector [API specification](openapi.json) for details.
 
-It describes various API operations, related request and response structures, and error codes.
+### Agents
 
-## Build
+Agents are managers and technicians you've added to your service desk. Using the agents API, you can list Freshdesk agents.
 
-To build the project binary, run
-```
-    go build -o main .
+### Tickets
 
-```
+In Freshdesk, tickets are objects that enable you to track incidents and issues. Use the tickets API to list, create, and delete Freshdesk tickets.
 
-## Run locally
+### Groups
 
-To run the project, simply provide env variables to supply the API key and Freshdesk domain name.
+In Freshdesk, groups are how you add and organize agents within a workspace. Use the groups API to get details about groups. 
 
+## Authentication
 
-```bash
-go build -o main .
-API_KEY=<API_KEY> DOMAIN_NAME=<DOMAIN_NAME> ./main
-```
+To authenticate when provisioning the Kosha Freshdesk connector, you need your:
 
-This will start a worker and expose the API on port `8005` on the host machine
+* Freshdesk API key
+* Freshdesk domain name
 
-Swagger docs is available at `https://localhost:8005/docs`
+## Kosha Connector Open Source Development
 
-## Generating Swagger Documentation
+All connectors Kosha shares on the marketplace are open source. We believe in fostering collaboration and open development. Everyone is welcome to contribute their ideas, improvements, and feedback for any Kosha connector. We encourage community engagement and appreciate any contributions that align with our goals of an open and collaborative API management platform.
 
-To generate `swagger.json` and `swagger.yaml` files based on the API documentation, simple run -
-
-```bash
-go install github.com/swaggo/swag/cmd/swag@latest
-swag init -g main.go --parseDependency --parseInternal
-```
-
-To generate OpenAPISpec version 3 from Swagger 2.0 specification, run -
-
-```bash
-npm i api-spec-converter
-npx api-spec-converter --from=swagger_2 --to=openapi_3 --syntax=json ./docs/swagger.json > openapi.json
-```
+Refer to the contribution guidelines for details.
